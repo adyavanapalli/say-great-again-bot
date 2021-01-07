@@ -22,12 +22,12 @@ class Bot:
 
         self.token = token
 
-    def great_callback(update, context):
+    def great_callback(self, update, context):
         """A callback method to run when a `great` message is received."""
 
         context.bot.send_message(
             chat_id=update.effective_chat.id,
-            text=random.choice(RESPONSES),
+            text=random.choice(self.RESPONSES),
         )
 
     def start(self):
