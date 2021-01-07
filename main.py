@@ -2,7 +2,7 @@
 
 import os
 
-from saywhatagainbot import Bot
+from saygreatagainbot import Bot
 
 if __name__ == "__main__":
     bot = Bot(os.environ.get("TOKEN"))
