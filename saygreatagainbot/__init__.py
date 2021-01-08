@@ -15,7 +15,7 @@ class Bot:
     """Contains methods for initializing and starting this bot."""
 
     RESPONSES: List[str] = [
-        "Say great again. Say great again, I dare you, I double dare you motherfucker, say great one more Goddamn time!"
+        "Say 'great' again. Say 'great' again, I dare you, I double dare you motherfucker, say great one more Goddamn time!"
     ]
 
     PATTERN: re.Pattern = re.compile(r"^g+r+e+a+t+[\.!]*$", re.IGNORECASE)
