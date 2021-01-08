@@ -6,23 +6,30 @@ import re
 from telegram.ext import Filters
 from telegram.ext import MessageHandler
 from telegram.ext import Updater
+from telegram.ext.callbackcontext import CallbackContext
+from telegram.update import Update
+from typing import List
 
 
 class Bot:
     """Contains methods for initializing and starting this bot."""
 
-    RESPONSES = [
-        "Say 'great' again. Say 'great' again, I dare you, I double dare you motherfucker, say great one more Goddamn time!"
+    RESPONSES: List[str] = [
+        "Say great again. Say great again, I dare you, I double dare you motherfucker, say great one more Goddamn time!"
     ]
 
-    PATTERN = re.compile(r"^g+r+e+a+t+[\.!]*$", re.IGNORECASE)
+    PATTERN: re.Pattern = re.compile(r"^g+r+e+a+t+[\.!]*$", re.IGNORECASE)
 
-    def __init__(self, token):
+    def __init__(self, token: str) -> None:
         """Constructor."""
 
         self.token = token
 
-    def great_callback(self, update, context):
+    def great_callback(
+        self,
+        update: Update,
+        context: CallbackContext,
+    ) -> None:
         """A callback method to run when a `great` message is received."""
 
         context.bot.send_message(
@@ -30,7 +37,7 @@ class Bot:
             text=random.choice(self.RESPONSES),
         )
 
-    def start(self):
+    def start(self) -> None:
         """Starts the bot."""
 
         updater = Updater(self.token)
