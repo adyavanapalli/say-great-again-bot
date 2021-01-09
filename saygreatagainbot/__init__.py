@@ -18,6 +18,8 @@ class Bot:
         "Say 'great' again. Say 'great' again, I dare you, I double dare you motherfucker, say great one more Goddamn time!"
     ]
 
+    IMAGES: List[str] = ["images/meme.jpg"]
+
     PATTERN: re.Pattern = re.compile(r"^g+r+e+a+t+[\.!]*$", re.IGNORECASE)
 
     def __init__(self, token: str) -> None:
@@ -31,6 +33,20 @@ class Bot:
         context: CallbackContext,
     ) -> None:
         """A callback method to run when a `great` message is received."""
+
+        reply_method = random.choice([self.reply_with_message, self.reply_with_image])
+        reply_method(update, context)
+
+    def reply_with_image(self, update: Update, context: CallbackContext):
+        """Replies to a `great` message with an image."""
+
+        context.bot.send_photo(
+            chat_id=update.effective_chat.id,
+            photo=open(random.choice(self.IMAGES), mode="rb"),
+        )
+
+    def reply_with_message(self, update: Update, context: CallbackContext):
+        """Replies to a `great` message with a message."""
 
         context.bot.send_message(
             chat_id=update.effective_chat.id,
