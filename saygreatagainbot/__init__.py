@@ -63,3 +63,4 @@ class Bot:
         dispatcher.add_handler(handler)
 
         updater.start_polling()
+        updater.idle()
