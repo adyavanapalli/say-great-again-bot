@@ -18,7 +18,12 @@ class Bot:
         "Say 'great' again. Say 'great' again, I dare you, I double dare you motherfucker, say great one more Goddamn time!"
     ]
 
-    IMAGES: List[str] = ["images/meme.jpg", "images/juice.jpg"]
+    IMAGES: List[str] = [
+        "images/juice.jpg",
+        "images/meme.jpg",
+        "images/pepperidge.jpg",
+        "images/tony-tiger.jpg",
+    ]
 
     PATTERN: re.Pattern = re.compile(r"^g+r+e+a+t+[\.!]*$", re.IGNORECASE)
 
