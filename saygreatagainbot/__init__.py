@@ -19,6 +19,8 @@ class Bot:
     ]
 
     IMAGES: List[str] = [
+        "images/distracted-bf.jpg",
+        "images/fry.jpg",
         "images/juice.jpg",
         "images/meme.jpg",
         "images/pepperidge.jpg",
