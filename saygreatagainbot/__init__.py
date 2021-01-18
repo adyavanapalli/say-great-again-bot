@@ -44,6 +44,7 @@ class Bot:
         context.bot.send_photo(
             chat_id=update.effective_chat.id,
             photo=open(f"images/{random.choice(self.IMAGES)}", mode="rb"),
+            reply_to_message_id=update.message.message_id,
         )
 
     def reply_with_message(self, update: Update, context: CallbackContext):
@@ -51,6 +52,7 @@ class Bot:
 
         context.bot.send_message(
             chat_id=update.effective_chat.id,
+            reply_to_message_id=update.message.message_id,
             text=random.choice(self.RESPONSES),
         )
 
