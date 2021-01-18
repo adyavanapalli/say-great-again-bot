@@ -1,5 +1,6 @@
 """Contains the `Bot` class."""
 
+import os
 import random
 import re
 
@@ -18,14 +19,7 @@ class Bot:
         "Say 'great' again. Say 'great' again, I dare you, I double dare you motherfucker, say great one more Goddamn time!"
     ]
 
-    IMAGES: List[str] = [
-        "images/distracted-bf.jpg",
-        "images/fry.jpg",
-        "images/juice.jpg",
-        "images/meme.jpg",
-        "images/pepperidge.jpg",
-        "images/tony-tiger.jpg",
-    ]
+    IMAGES: List[str] = os.listdir("images")
 
     PATTERN: re.Pattern = re.compile(r"^g+r+e+a+t+[\.!]*$", re.IGNORECASE)
 
