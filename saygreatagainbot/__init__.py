@@ -23,10 +23,10 @@ class Bot:
 
     PATTERN: re.Pattern = re.compile(r"^g+r+e+a+t+[\.!]*$", re.IGNORECASE)
 
-    def __init__(self, token: str) -> None:
+    def __init__(self, bot_token: str) -> None:
         """Constructor."""
 
-        self.token = token
+        self.bot_token = bot_token
 
     def great_callback(
         self,
@@ -59,7 +59,7 @@ class Bot:
     def start(self) -> None:
         """Starts the bot."""
 
-        updater = Updater(self.token)
+        updater = Updater(self.bot_token)
         dispatcher = updater.dispatcher
 
         handler = MessageHandler(Filters.regex(self.PATTERN), self.great_callback)
