@@ -18,5 +18,3 @@ jobs:
 
       - name: Run Black
         uses: psf/black@stable
-        with:
-          black_args: ". --check"
